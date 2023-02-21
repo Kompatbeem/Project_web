@@ -37,7 +37,7 @@
 
       <!-- Main content -->
       <section class="content">
-        <h2 class="pt-3">จัดการ</h2>
+        <h2 class="pt-3">จัดการข้อมูลเจ้าหน้าที่ดูแลคลัง</h2>
         <div class="container-fluid ">
           <p><button type="button" class="btn btn-success btn-sm mt-3" data-toggle="modal" data-target="#myModal"> +เพิ่มข้อมูล</button>
           <div class="modal fade" id="myModal">
@@ -48,7 +48,7 @@
 
                   <!-- Modal Header -->
                   <div class="modal-header">
-                    <h4 class="modal-title">เพิ่มข้อมูล : นักศึกษา</h4>
+                    <h4 class="modal-title">เพิ่มข้อมูล </h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <!-- Modal body -->
