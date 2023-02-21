@@ -22,7 +22,7 @@ session_start();
             $_SESSION["user_id"] = $row["user_id"];
             $_SESSION["user_level"] = $row["user_level"];
             $_SESSION["u_name"] = $row["u_name"];
-            $_SESSION["user_lastname"] = $row["u_lastname"];
+            $_SESSION["u_lastname"] = $row["u_lastname"];
 
             if ($row["user_level"]=="admin"){
                   Header("location: admin");

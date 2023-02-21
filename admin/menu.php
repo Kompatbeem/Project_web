@@ -16,8 +16,8 @@ session_start();
         <div class="image">
         </div>
         <div class="info">
-          <a href="index.php" class="d-block"><?php echo $_SESSION['u_name']; ?> <br>
-          สถานะ <?php echo $_SESSION['user_level']; ?></a>
+          <a href="index.php" class="d-block"><?php echo $_SESSION['u_name']." ", $_SESSION['username_lastname']; ?> <br>
+          สถานะ <label class="h4 ml-1"><?php echo $_SESSION['user_level']; ?></label></a>
         </div>
       </div>
 
@@ -47,7 +47,7 @@ session_start();
             </a>
           </li>         
           <li class="nav-item">
-            <a href="student.php" class="nav-link <?php if($menu=="student"){echo "active";} ?> ">
+            <a class="nav-link <?php if($menu=="student") ?> ">
               <i class="nav-icon fas fa-edit"></i>
               <p>จัดการข้อมูลผู้จัดการหอพัก</p>
             </a>

@@ -12,14 +12,15 @@
   <table id="example1" class="table table-bordered table-striped dataTable">
     <thead>
       <tr role="row" class="info">
-        <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ID</th>
-        <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่องาน</th>
-        <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ผู้แจ้ง</th>
-        <th  tabindex="0" rowspan="1" colspan="1" style="width: 20%;">รายละเอียดงาน</th>
-        <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่</th>
-        <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">สถานะ</th>
+        <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">รหัสครุภัณฑ์</th>
+        <th  tabindex="0" rowspan="1" colspan="1" style="width: 30%;">ชื่อครุภัณฑ์</th>
+        <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ประเภท</th>
+        <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">จำนวน</th>
+        <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">หน่วย</th>
+        <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ราคา</th>
         <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
-        <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">แจกงาน</th>
+        <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
+        
       </tr>
     </thead>
     <tbody>
@@ -39,9 +40,6 @@
         </td>
          <td>
          <?php echo $row['place_case']; ?>
-        </td>
-         <td>
-         <?php echo $row['status_name']; ?>
         </td>
          <td>
          <?php echo date("d-m-Y , H:i:s", strtotime( $row['date_case'])); ?>
