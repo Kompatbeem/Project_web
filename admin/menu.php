@@ -35,7 +35,7 @@ session_start();
             </a>
             <div class="dropdown-menu">
             <a href="index.php" class="dropdown-item" >ครุภัณฑ์</a>
-            <a href="index.php" class="dropdown-item ">วัสดุ</a>
+            <a href="case_list_2.php" class="dropdown-item ">วัสดุ</a>
             
             </div>
           </li>
@@ -56,13 +56,14 @@ session_start();
               <i class="nav-icon fas fa-edit"></i>
               <p>ตรวจนับครุภัณฑ์ประจำปี</p>
             </a>
-          </li>    
-          <!-- <li class="nav-item">
+          </li>   
+           
+          <li class="nav-item">
             <a href="admin_profile.php" class="nav-link <?php if($menu=="admin_profile"){echo "active";} ?> ">
             <i class="nav-icon fa fa-address-book"></i>
               <p>จัดการข้อมูลส่วนตัว</p>
             </a>
-          </li>      -->
+          </li>     
           <li class="nav-header">ออกจากระบบ</li>
           <li class="nav-item">
             <a href="../logout.php" class="nav-link "  onclick="return confirm('ยืนยันออกจากระบบ !!');">

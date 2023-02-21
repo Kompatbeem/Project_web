@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <?php $menu = "count_MI"; ?>
 <?php include("head.php"); ?>
@@ -50,4 +50,5 @@
   <?php include("script.php"); ?>
 </body>
 
-</html>
+</html> -->
+

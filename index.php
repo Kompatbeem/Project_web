@@ -43,7 +43,7 @@ height: 100%;
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form action="check_login.php" method="post">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-center">
-            <h3 class="lead fw-normal mb-0 me-3">ระบบริหารการตรวจนับวัสดุและครุภัณฑ์ </h3>
+            <h3 class="lead fw-normal mb-0 me-3">ระบบบริหารการตรวจนับวัสดุและครุภัณฑ์ </h3>
             <!-- <a href="https://web.facebook.com/devtai.com2019/"><button type="button"class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-facebook-f"></i>
             </button></a>
