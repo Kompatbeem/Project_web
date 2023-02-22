@@ -64,7 +64,7 @@ session_start();
               <p>จัดการข้อมูลส่วนตัว</p>
             </a>
           </li>     
-          <li class="nav-header">ออกจากระบบ</li>
+          
           <li class="nav-item">
             <a href="../logout.php" class="nav-link "  onclick="return confirm('ยืนยันออกจากระบบ !!');">
               <i class="nav-icon fas fa-sign-out-alt"></i>
