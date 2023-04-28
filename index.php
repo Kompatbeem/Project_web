@@ -1,4 +1,4 @@
-<title>Counting system</title>
+<title>Receiving system</title>
 <!-- Font Awesome -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -43,7 +43,7 @@ height: 100%;
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form action="check_login.php" method="post">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-center">
-            <h3 class="lead fw-normal mb-0 me-3">ระบบบริหารการตรวจนับวัสดุและครุภัณฑ์ </h3>
+            <h3 class="lead fw-normal mb-0 me-3">ระบบบริหารการตรวจรับวัสดุและครุภัณฑ์ </h3>
             <!-- <a href="https://web.facebook.com/devtai.com2019/"><button type="button"class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-facebook-f"></i>
             </button></a>
@@ -100,7 +100,7 @@ height: 100%;
     class=" text-center text-md-center  py-4 px-4 px-xl-5 bg-primary">
     <!-- Copyright -->
     <div class="text-white mb-3 mb-md-0">
-     ระบบริหารการตรวจนับ counting system RMUTT  © DevRmutt 2023. 
+     ระบบริหารการตรวจรับ Receiving system RMUTT  © DevRmutt 2023. 
     </div>
     <!-- Copyright -->
 
