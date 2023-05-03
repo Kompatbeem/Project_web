@@ -26,10 +26,12 @@ session_start();
 
             if ($row["user_level"]=="admin"){
                   Header("location: admin");
-            }elseif($row["user_level"]=="student"){
-                  Header("location: student");
+            }elseif($row["user_level"]=="officer"){
+                  Header("location: officer");
             }elseif($row["user_level"]=="worker"){
                   Header("location: worker");
+            }elseif($row["user_level"]=="student"){
+                  Header("location: student");
             }else{
             echo "<script>";
             echo "alert(\" UserName หรือ password ไม่ถูกต้อง \");";

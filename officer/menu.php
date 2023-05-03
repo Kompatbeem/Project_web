@@ -18,7 +18,7 @@ session_start();
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-               <li class="nav-header"><?php echo $_SESSION['u_name'] ." ", $_SESSION['user_lastname']; ?> <br> สถานะ &nbsp; <?php  echo $_SESSION['user_level']; ?></li>
+        <li class="nav-header"><?php echo $_SESSION['u_name'] ." ", $_SESSION['user_lastname']; ?> <br> สถานะ &nbsp; <?php  echo $_SESSION['user_level']; ?></li>
         <li class="nav-item">
           <a href="index.php" data-toggle="dropdown" class="nav-link  <?php if ($menu == "index") {
             echo "active";
@@ -33,23 +33,15 @@ session_start();
           </div>
         </li>
         <li class="nav-item">
-          <a href="count_MI.php" class="nav-link <?php if ($menu == "count_MI") {
+          <a href="report.php" class="nav-link <?php if ($menu == "report") {
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
-            <p>แต่งตั้งคณะกรรมการตรวจนับ</p>
+            <p>ตรวจสอบรายงาน</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="count_DI.php" class="nav-link <?php if ($menu == "count_DI") {
-            echo "active";
-          } ?> ">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>รายชื่อคณะกรรมการ</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="location_DI.php" class="nav-link <?php if ($menu == "count_DI") {
+          <a href="officer_location_status.php" class="nav-link <?php if ($menu == "officer_location_status") {
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
@@ -57,17 +49,7 @@ session_start();
           </a>
         </li>
         <li class="nav-item">
-          <a href="location_status.php" class="nav-link <?php if ($menu == "count_DI") {
-            echo "active";
-          } ?> ">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>สถานะเปลี่ยนสถานที่ครุภัณฑ์</p>
-          </a>
-        </li>
-      
-
-        <li class="nav-item">
-          <a href="admin_profile.php" class="nav-link <?php if ($menu == "admin_profile") {
+          <a href="officer_profile.php" class="nav-link <?php if ($menu == "officer_profile") {
             echo "active";
           } ?> ">
             <i class="nav-icon fa fa-address-book"></i>
