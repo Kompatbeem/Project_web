@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $menu = "count_MI"; ?>
+<?php $menu = "admin_addfile"; ?>
 <?php include("head.php"); ?>
 <?php
 include('condb.php');
@@ -48,53 +48,34 @@ $row = mysqli_fetch_array($result);
             <br>
 
             <div class="col-12 container">
-                <form action="admin_add_profile.php" method="post" accept-charset="utf-8">
+                <form action="addmin_file.php" method="post" accept-charset="utf-8">
                     <div class="container">
                         <div class="form-group col-sm-6">
-                            <h4>แต่งตั้งคณะกรรมการตรวจนับ</h4>
+                            <h4>แนบไฟล์</h4>
                             <br>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="u_lastname">ชื่อผู้ใช้</label>
-                                <input type="text" class="form-control" name="username">
+                                <label for="user_id">เลขผู้ใช้</label>
+                                <input type="text" class="form-control" name="user_id">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="password">รหัสผ่าน</label>
-                                <input type="password" class="form-control" name="password">
+                                <label>อัพโหลดไฟล์</label><br>
+                                <!-- <form action="/action_page.php"> -->     
+                                <input type="file"  name="myfile"><br>
+                                 <!-- <input type="submit"> -->
+                                <!-- </form> -->
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="u_name">ชื่อ</label>
-                                <input type="text" class="form-control" name="u_name">
+                                <label for="id_file">Group</label>
+                                <input type="text" class="form-control" name="id_file">
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="u_lastname">นามสกุล</label>
-                                <input type="text" class="form-control" name="u_lastname">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>ตำแหน่งที่มอบหมาย</label>
-                                <select class="form-control" name="user_level">
-                                    <option value"bm">คณะกรรมการตรวจรับวัสดุ</option>
-                                    <option value"bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
-                                    <option value"by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>แต่งตั้ง ณ วันที่</label>
-                                <input type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>"
-                                    name="u_date">
-                            </div>
-                        </div>
+        
                         <div>
                             <button type="submit" method="post" class="btn btn-success"
                                 onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>

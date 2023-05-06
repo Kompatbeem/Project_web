@@ -85,7 +85,7 @@
               <?php echo $row['DI_STATUS']; ?>  &nbsp;                         
            
   <!-- Trigger the modal with a button -->
-  <button type="button" style="width:50px; height:50; font-size:10px;" class="btn btn-danger">delete</button>
+  <button type="button" style="width:50px; height:50; font-size:10px;" method="post" class="btn btn-danger" onclick="return confirm('ยืนยันการไขข้อมูล !!');">delete</button>
   <button type="button" style="width:50px; height:50; font-size:10px;" class="btn btn-warning" data-toggle="modal" data-target="#myModal">edit</button>
 
   <!-- Modal -->

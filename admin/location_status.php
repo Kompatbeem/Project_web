@@ -51,8 +51,8 @@
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อครุภัณฑ์</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสครุภัณฑ์</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสครุภัณฑ์</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อครุภัณฑ์</th> 
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ปัจจุบัน</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ใหม่</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
@@ -65,12 +65,13 @@
           <?php foreach ($result as $row) {
             $i += 1 ?>
             <tr>
+            <td>
+                <?php echo $row['DI_ID']; ?>
+              </td>
               <td>
                 <?php echo $row['DI_NAME']; ?>
               </td>
-              <td>
-                <?php echo $row['DI_ID']; ?>
-              </td>
+            
               <td>
                 <?php echo $row['DI_LOCATION']; ?>
               </td>
@@ -92,7 +93,12 @@
                             onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>  
                             </div> -->                             
                 <?php echo $row['DI_STATUS']; ?>
-                <button type="button"  style="width:50px; height:50; font-size:10px;" class="btn btn-danger">delete</button>
+                     
+          <a class="btn btn-danger  btn-sm" href="location_del.php?DI_ID=<?= $row['DI_ID'];?>" 
+            onclick="return confirm('ยืนยันการลบข้อมูล !!');">
+           ลบ
+          </a>
+        
               </td>
 
             <?php } ?>

@@ -6,7 +6,7 @@ include('condb.php');
 // echo "</pre>";
 // exit();
 
-if (!empty($_POST["DI_NAME"]) && !empty($_POST["DI_ID"]) && !empty($_POST["DI_LOCATION"]) && !empty($_POST["DI_NLOCATION"]) && !empty($_POST["DI_DATE"])) {
+if (!empty($_POST["DI_NAME"]) && !empty($_POST["DI_ID"]) && !empty($_POST["DI_LOCATION"])  && !empty($_POST["DI_DATE"])) {
 
     $DI_NAME = mysqli_real_escape_string($con, $_POST["DI_NAME"]);
     $DI_ID = mysqli_real_escape_string($con, $_POST["DI_ID"]);

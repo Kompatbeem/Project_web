@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $menu = "count_DI"; ?>
+<?php $menu = "admin_file"; ?>
 <?php include("head.php"); ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -52,13 +52,8 @@
         <thead>
           <tr role="row" class="info">
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เลขผู้ใช้</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไอดี</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสผ่าน</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 25%;">ชื่อ-นามสกุล</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เบอร์มือถือ</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">อีเมล</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">วัน-เวลา</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ID File</th>
+           
             
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
@@ -72,25 +67,7 @@
                 <?php echo $row['user_id']; ?>
               </td>
               <td>
-                <?php echo $row['username']; ?>
-              </td>
-              <td>
-                <?php echo $row['password']; ?>
-              </td>
-              <td>
-                <?php echo $row['user_level']; ?>
-              </td>
-              <td>
-                <?php echo $row['u_name'] . ' ' . $row['u_lastname'] ?>
-              </td>
-              <td>
-                <?php echo $row['u_tel']; ?>
-              </td>
-              <td>
-                <?php echo $row['u_email']; ?>
-              </td>
-              <td>
-                <?php echo $row['u_date']; ?>
+                <?php echo $row['id_file']; ?>
               </td>
 
             <?php } ?>

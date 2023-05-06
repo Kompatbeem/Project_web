@@ -18,11 +18,12 @@ if (!$result) {
     <tr role="row" class="info">
       <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">รหัสครุภัณฑ์</th>
       <th tabindex="0" rowspan="1" colspan="1" style="width: 30%;">ชื่อครุภัณฑ์</th>
-      <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ประเภท</th>
-      <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">จำนวน</th>
+      <th tabindex="0" rowspan="1" colspan="1" style="width: 8%;">ประเภท</th>
+      <th tabindex="0" rowspan="1" colspan="1" style="width: 7%;">จำนวน</th>
       <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">หน่วยนับ</th>
       <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ราคา</th>
       <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
+      <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">เปลี่ยนสถานที่</th>
       <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
     </tr>
@@ -52,7 +53,11 @@ if (!$result) {
         <td>
           <?php echo $row['DI_DATE']; ?>
         </td>
-
+        <td>
+        <div align="center">
+        <a href="location_DI.php"><button type="button"  style="width:50px; height:50; font-size:10px;" class="btn btn-warning">แก้ไข </button>
+    </div>
+    </td>
       <?php } ?>
     </tr>
   </tbody>

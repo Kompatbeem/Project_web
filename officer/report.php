@@ -51,12 +51,12 @@
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อครุภัณฑ์</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสครุภัณฑ์</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ปัจจุบัน</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ใหม่</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ลำดับที่</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">หัวข้อรายงาน</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ผู้จัดทำรายงาน</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ตำแหน่ง</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">สถานะ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">ตรวจสอบ</th>
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
           </tr>
@@ -66,16 +66,16 @@
             $i += 1 ?>
             <tr>
               <td>
-                <?php echo $row['DI_NAME']; ?>
+                <?php echo $row['']; ?>
               </td>
               <td>
-                <?php echo $row['DI_ID']; ?>
+                <?php echo $row['']; ?>
               </td>
               <td>
-                <?php echo $row['DI_LOCATION']; ?>
+                <?php echo $row['']; ?>
               </td>
               <td>
-                <?php echo $row['DI_NLOCATION']; ?>
+                <?php echo $row['']; ?>
               </td>
               <td>         
                 <?php echo $row['DI_DATE']; ?>
@@ -85,8 +85,7 @@
               <?php echo $row['DI_STATUS']; ?>  &nbsp;                         
            
   <!-- Trigger the modal with a button -->
-  <button type="button" style="width:50px; height:50; font-size:10px;" class="btn btn-danger">delete</button>
-  <button type="button" style="width:50px; height:50; font-size:10px;" class="btn btn-warning" data-toggle="modal" data-target="#myModal">edit</button>
+  <button type="button" style="width:50px; height:50; font-size:10px;" class="btn btn-warning" data-toggle="modal" data-target="#myModal">ตรวจสอบ</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
