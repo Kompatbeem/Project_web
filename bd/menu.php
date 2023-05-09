@@ -50,19 +50,7 @@ session_start();
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
-<<<<<<< HEAD
-            <p>รายการตรวจรับวัสดุและครุภัณฑ์สั่งซื้อ</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="officer_location_status.php" class="nav-link <?php if ($menu == "officer_location_status") {
-            echo "active";
-          } ?> ">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>ตรวจนับครุภัณฑ์ประจำปี</p>
-=======
-            <p>ตรวจรับวัสดุสั่งซื้อ</p>
->>>>>>> 877b78935200088a338e1b6db487a350d07e0141
+            <p>ตรวจรับครุภัณฑ์สั่งซื้อ</p>
           </a>
         </li>
         <li class="nav-item">
