@@ -50,7 +50,7 @@ session_start();
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
-            <p>ตรวจรับวัสดุสั่งซื้อ</p>
+            <p>ตรวจรับครุภัณฑ์สั่งซื้อ</p>
           </a>
         </li>
         <li class="nav-item">

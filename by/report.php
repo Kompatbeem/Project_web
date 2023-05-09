@@ -103,8 +103,8 @@
 
                               <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                                 <option selected>เลือกสถานะข้อมูล</option>
-                                <option value="1">ครบ</option>
-                                <option value="2">ไม่ครบ</option>
+                                <option value="1">สมบูรณ์ทุกชิ้น</option>
+                                <option value="2">มีการส่งซ่อมหรือจำหน่ายออก</option>
 
                               </select>
 
