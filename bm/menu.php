@@ -50,7 +50,7 @@ session_start();
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
-            <p>ตรวจสอบรายงาน</p>
+            <p>รายการตรวจรับวัสดุและครุภัณฑ์สั่งซื้อ</p>
           </a>
         </li>
         <li class="nav-item">
@@ -58,7 +58,7 @@ session_start();
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
-            <p>เปลี่ยนสถานที่ครุภัณฑ์</p>
+            <p>ตรวจนับครุภัณฑ์ประจำปี</p>
           </a>
         </li>
         <li class="nav-item">

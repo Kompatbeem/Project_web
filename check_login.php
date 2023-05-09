@@ -30,6 +30,8 @@ session_start();
                   Header("location: officer");
             }elseif($row["user_level"]=="worker"){
                   Header("location: worker");
+            }elseif($row["user_level"]=="bm"){
+                  Header("location: bm");
             }elseif($row["user_level"]=="student"){
                   Header("location: student");
             }else{

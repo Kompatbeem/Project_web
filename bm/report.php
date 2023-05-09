@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $menu = "location_status"; ?>
+<?php $menu = "report"; ?>
 <?php include("head.php");
 
 ?>
