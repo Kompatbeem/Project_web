@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $menu = "location_status"; ?>
+<?php $menu = "officer_location_status"; ?>
 <?php include("head.php"); ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">

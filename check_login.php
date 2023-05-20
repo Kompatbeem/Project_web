@@ -28,6 +28,19 @@ if (isset($_POST['username'])) {
                   Header("location: admin");
             } elseif ($row["user_level"] == "officer") {
                   Header("location: officer");
+<<<<<<< HEAD
+            }elseif($row["user_level"]=="worker"){
+                  Header("location: worker");
+            }elseif($row["user_level"]=="bm"){
+                  Header("location: bm");
+            }elseif($row["user_level"]=="student"){
+                  Header("location: student");
+            }else{
+            echo "<script>";
+            echo "alert(\" UserName หรือ password ไม่ถูกต้อง \");";
+            echo "window.history.back()";
+            echo "</script>";
+=======
             } elseif ($row["user_level"] == "bm") {
                   Header("location: bm");
             } elseif ($row["user_level"] == "bd") {
@@ -40,6 +53,7 @@ if (isset($_POST['username'])) {
                   echo "window.history.back()";
                   echo "</script>";
             }
+>>>>>>> 877b78935200088a338e1b6db487a350d07e0141
       }
 }
 ?>

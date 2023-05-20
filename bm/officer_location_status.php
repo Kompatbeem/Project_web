@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <?php $menu = "bm"; ?>
+=======
+<?php $menu = "officer_location_status"; ?>
+>>>>>>> ea6dd9b5f081b6ac062784a3557d873913359488
 <?php include("head.php"); ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -106,7 +110,9 @@
                                     <option>อนุมัติ</option>
                                     <option>ไม่อนุมัติ</option>
                                 </select>
+                                
                             </div>
+                           
                             <div align="right">
                             <button type="submit" style="width:50px; height:50; font-size:10px;" method="post" class="btn btn-success" 
                                 onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $menu = "location_status"; ?>
+<?php $menu = "report"; ?>
 <?php include("head.php"); ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -36,7 +36,7 @@
       <?php
       include("condb.php"); // เชื่อมต่อฐานข้อมูล
       
-      $result = $con->query("SELECT * FROM di_data");
+      $result = $con->query("SELECT * FROM report_data,tbl_login");
       // $query_case = "SELECT * FROM di_data"
       //  INNER JOIN tbl_login as u ON c.user_id = u.user_id
       
@@ -66,49 +66,44 @@
             $i += 1 ?>
             <tr>
               <td>
-                <?php echo $row['']; ?>
+                <?php echo $row['report_id']; ?>
               </td>
               <td>
-                <?php echo $row['']; ?>
+                <?php echo $row['report_name']; ?>
               </td>
               <td>
-                <?php echo $row['']; ?>
+                <?php echo $row['u_name']; ?>
               </td>
               <td>
-                <?php echo $row['']; ?>
+                <?php echo $row['user_level']; ?>
               </td>
               <td>         
-                <?php echo $row['DI_DATE']; ?>
+                <?php echo $row['report_time']; ?>
               </td>
               <td>
               <div class="container">
               <?php echo $row['DI_STATUS']; ?>  &nbsp;                         
            
   <!-- Trigger the modal with a button -->
-  <button type="button" style="width:50px; height:50; font-size:10px;" class="btn btn-warning" data-toggle="modal" data-target="#myModal">ตรวจสอบ</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <!-- <a href= "officer_profile.php" target="newtab"> -->
+    <button type="button" style="width:100px; height:100; font-size:10px;" class="btn btn-warning" data-toggle="modal" data-target="#myModal">ตรวจสอบ</button>
+    <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-        <h4 class="modal-title">แก้ไขสถานะ</h4>
+        <h4 class="modal-title">รายงาน6</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-        <div class="form-group">
-                                <label></label>
-                                <select class="form-control" name="user_level">
-                                    <option>รออนุมัติ</option>
-                                    <option>อนุมัติ</option>
-                                    <option>ไม่อนุมัติ</option>
-                                </select>
-                            </div>
+       <h3> รายงานการตรวจรับวัสดุสั่งซื้อ ประจำวันที่1 มกราคม 2566 </h3> <br> <P> &nbsp;ข้าพเจ้านายคมภัทร เต็มดวง ตำแหน่งคณะกรรมการตรวจรับวัสดุสั่งซื้อ </p> <p>ได้ตรวจเช็ครายการวัสดุสั่งซื้อครบถ้วนตามใบสั่งซื้อ</p>
+       <br><br><br><br> 
+       <p style="text-align:right;">ลงวันที่</p>
+       <p style="text-align:right;">3 มกราคม 2566</p>
                             <div align="right">
-                            <button type="submit" style="width:50px; height:50; font-size:10px;" method="post" class="btn btn-success" 
-                                onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>
+                            <button type="submit" style="width:60px; height:60; font-size:10px;" method="post" class="btn btn-success" 
+                                onclick="return confirm('ยืนยันการไขข้อมูล !!');">เรียบร้อย</button>
                         </div>
 
         </div>
@@ -116,6 +111,9 @@
       
     </div>
   </div>
+
+  <!-- Modal -->
+  
   
 </div>
               </td>
