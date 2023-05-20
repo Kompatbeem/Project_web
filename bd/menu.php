@@ -54,6 +54,22 @@ session_start();
           </a>
         </li>
         <li class="nav-item">
+          <a href="progress.php" class="nav-link <?php if ($menu == "progress") {
+            echo "active";
+          } ?> ">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>กำลังดำเนินการ</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="finish.php" class="nav-link <?php if ($menu == "finish") {
+            echo "active";
+          } ?> ">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>เสร็จเรียบร้อย</p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="officer_profile.php" class="nav-link <?php if ($menu == "officer_profile") {
             echo "active";
           } ?> ">

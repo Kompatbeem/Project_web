@@ -58,7 +58,7 @@
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ชื่อ-นามสกุล ผู้มอบงาน</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">วันที่</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไฟล์</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ตรวจรับ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ตรวจนับ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
@@ -83,7 +83,7 @@
 
                   <!-- Trigger the modal with a button -->
                   <button type="button" style="width:100px; height:50; font-size:10px;" class="btn btn-success"
-                    data-toggle="modal" data-target="#myModal">ตรวจรับ</button>
+                    data-toggle="modal" data-target="#myModal">ตรวจนับ</button>
 
                   <!-- Modal -->
                   <div class="modal fade" id="myModal" role="dialog">

@@ -7,7 +7,6 @@ $row = mysqli_fetch_array($result);
 // echo $sql;
 // exit();
 
-
 ?>
 <div class="col-12 container">
     <form action="admin_profile_db.php" method="post" accept-charset="utf-8">

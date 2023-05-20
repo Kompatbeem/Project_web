@@ -82,9 +82,9 @@ $row = mysqli_fetch_array($result);
                             <div class="form-group">
                                 <label>ตำแหน่งที่มอบหมาย</label>
                                 <select class="form-control" name="user_level">
-                                    <option value"bm">คณะกรรมการตรวจรับวัสดุ</option>
-                                    <option value"bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
-                                    <option value"by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
+                                    <option values"bm">คณะกรรมการตรวจรับวัสดุ</option>
+                                    <option values"bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
+                                    <option values"by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
                                 </select>
                             </div>
                         </div>
