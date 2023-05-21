@@ -6,14 +6,13 @@ include('condb.php');
 // echo "</pre>";
 // exit();
 
-if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["user_level"]) && !empty($_POST["u_name"]) && !empty($_POST["u_lastname"]) && !empty($_POST["id_file"]) && !empty($_POST["u_date"])) {
+if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["user_level"]) && !empty($_POST["u_name"]) && !empty($_POST["u_lastname"]) && !empty($_POST["u_date"])) {
 
     $username = mysqli_real_escape_string($con, $_POST["username"]);
     $password = mysqli_real_escape_string($con, $_POST["password"]);
     $user_level = mysqli_real_escape_string($con, $_POST["user_level"]);
     $u_name = mysqli_real_escape_string($con, $_POST["u_name"]);
     $u_lastname = mysqli_real_escape_string($con, $_POST["u_lastname"]);
-    $id_file = mysqli_real_escape_string($con, $_POST["id_file"]);
     $u_date = mysqli_real_escape_string($con, $_POST["u_date"]);
 
 

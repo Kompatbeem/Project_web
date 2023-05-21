@@ -52,13 +52,13 @@
         <thead>
           <tr role="row" class="info">
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เลขผู้ใช้</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไอดี</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ไอดี</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสผ่าน</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานะ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 25%;">ชื่อ-นามสกุล</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เบอร์มือถือ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">อีเมล</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">วัน-เวลา</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 40%;">วัน-เวลา</th>
             
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 

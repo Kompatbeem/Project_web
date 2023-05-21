@@ -17,8 +17,8 @@ include("condb.php"); // เชื่อมต่อฐานข้อมูล
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="DI_ID">รหัสครุภัณฑ์</label>
-                                <input type="้hidden" class="form-control" value="<?php echo $row['DI_ID']; ?>" name="DI_ID">
+                                <label for="DI_CODE">รหัสครุภัณฑ์</label>
+                                <input type="้hidden" class="form-control" value="<?php echo $row['DI_CODE']; ?>" name="DI_CODE">
                             </div>
                         <div class="col-sm-6">
                             <div class="form-group"> 
@@ -43,8 +43,7 @@ include("condb.php"); // เชื่อมต่อฐานข้อมูล
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label> ณ วันที่</label>
-                                <input type="date" class="form-control" value="<?php echo date('YYYY-MM-DD'); ?>"
-                                    name="DI_DATE">
+                                <input type="date" class="form-control" value="<?php echo date('YYYY-MM-DD'); ?>" name="DI_DATE">                                   
                             </div>
                         </div>
         <div text-align="left">

@@ -57,6 +57,7 @@
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ใหม่</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานะ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เมนู</th>
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
           </tr>
@@ -66,7 +67,7 @@
             $i += 1 ?>
             <tr>
             <td>
-                <?php echo $row['DI_ID']; ?>
+                <?php echo $row['DI_CODE']; ?>
               </td>
               <td>
                 <?php echo $row['DI_NAME']; ?>
@@ -92,14 +93,15 @@
                                 <button type="submit" method="post" class="btn btn-success"
                             onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>  
                             </div> -->                             
-                <?php echo $row['DI_STATUS']; ?>
-                     
-          <a class="btn btn-danger  btn-sm" href="location_del.php?DI_ID=<?= $row['DI_ID'];?>" 
+                <?php echo $row['DI_STATUS']; ?>                     
+              </td>
+              <td>
+              <a href="location_DI.php" style="width:50px; height:50; font-size:15px;" class="btn btn-warning  btn-sm" onclick="return confirm('ต้องการแก้ไขข้อมูลหรือไม่ !!');"> แก้ไข </a>
+              <a style="width:50px; height:50; font-size:15px;" class="btn btn-danger  btn-sm" href="location_del.php?DI_ID=<?= $row['DI_ID'];?>" 
             onclick="return confirm('ยืนยันการลบข้อมูล !!');">
            ลบ
           </a>
-        
-              </td>
+          </td>
 
             <?php } ?>
           </tr>

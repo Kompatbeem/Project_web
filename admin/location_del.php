@@ -7,9 +7,9 @@ include('condb.php');
 // exit();
 
 
-$DI_ID = $_GET["DI_ID"];
+$DI_ID = $_GET["DI_CODE"];
 
-$sql = "DELETE FROM di_data WHERE DI_ID=$DI_ID";
+$sql = "DELETE FROM di_data WHERE DI_CODE=$DI_CODE";
 
 $result = mysqli_query($con, $sql) or die("Error in query: $sql " .
  mysqli_error($sql));

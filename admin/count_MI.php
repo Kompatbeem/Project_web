@@ -10,21 +10,15 @@ $result = mysqli_query($con, $sql) or die("Error in query: $sql" . mysqli_error(
 $row = mysqli_fetch_array($result);
 // echo $sql;
 // exit();
-
-
 ?>
-
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-
         <!-- Navbar -->
         <?php include("navbar.php"); ?>
         <!-- /.navbar -->
         <?php include("menu.php"); ?>
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-
             <!-- sweet aleart -->
             <?php
             if (@$_GET['do'] == 'success') {
@@ -43,17 +37,35 @@ $row = mysqli_fetch_array($result);
               </script>';
                 // echo '<meta http-equiv="refresh" content="1;url=worker.php" />';
             } ?>
-
             <br>
             <br>
-
             <div class="col-12 container">
                 <form action="admin_add_profile.php" method="post" accept-charset="utf-8">
                     <div class="container">
                         <div class="form-group col-sm-6">
                             <h4>แต่งตั้งคณะกรรมการตรวจรับ</h4>
-                            <br>
                         </div>
+                        <button type="button" style="width:100px; height:100; font-size:15px;" class="btn btn-danger" data-toggle="modal" data-target="#myModal">กรุณาอ่าน &#10071;</button>          
+                        <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">             
+      <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h4 class="modal-title">ตำแหน่งงาน</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="form-group">
+                       <p>bm คือ คณะกรรมการตรวจรับวัสดุ</P>
+                       <p>bd คือ คณะกรรมการตรวจรับครุภัณฑ์</P>
+                       <p>by คือ คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</P>      
+                        </div>
+                        </div>
+                        </div>     
+                        </div>
+                        </div>
+                        <br>
+                        <br>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="u_lastname">ชื่อผู้ใช้</label>
@@ -82,12 +94,22 @@ $row = mysqli_fetch_array($result);
                             <div class="form-group">
                                 <label>ตำแหน่งที่มอบหมาย</label>
                                 <select class="form-control" name="user_level">
-                                    <option value"bm">คณะกรรมการตรวจรับวัสดุ</option>
-                                    <option value"bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
-                                    <option value"by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
+                                    <option value"bm">bm</option>
+                                    <option value"bd">bd</option>
+                                    <option value"by">by</option>
                                 </select>
                             </div>
                         </div>
+                        <!-- <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>ตำแหน่งที่มอบหมาย</label>
+                                <select class="form-control" name="user_level">
+                                    <option>คณะกรรมการตรวจรับวัสดุ</option>
+                                    <option>คณะกรรมการตรวจรับครุภัณฑ์</option>
+                                    <option>คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
+                                </select>
+                            </div>
+                        </div> -->
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>แต่งตั้ง ณ วันที่</label>
@@ -99,25 +121,15 @@ $row = mysqli_fetch_array($result);
                             <button type="submit" method="post" class="btn btn-success"
                                 onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>
                         </div>
-
-
-
                     </div>
                 </form>
             </div>
             <!-- Main content -->
-
         </div><!--content-wrapper  -->
     </div><!--rapper  -->
-
-
-
-
     <?php include("footer.php"); ?>
-
     </div>
     <!-- ./wrapper -->
     <?php include("script.php"); ?>
 </body>
-
 </html>
