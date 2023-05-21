@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $menu = "bd"; ?>
-<?php include("head.php"); ?>
+<?php $menu = "report"; ?>
+<?php include("head.php");
+
+?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -36,7 +38,7 @@
       <?php
       include("condb.php"); // เชื่อมต่อฐานข้อมูล
       
-      $result = $con->query("SELECT * FROM di_data");
+      $result = $con->query("SELECT * FROM tbl_login ");
       // $query_case = "SELECT * FROM di_data"
       //  INNER JOIN tbl_login as u ON c.user_id = u.user_id
       
@@ -48,15 +50,16 @@
       //   echo $query_case;
 //   exit();
       ?>
+
+
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อครุภัณฑ์</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสครุภัณฑ์</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ปัจจุบัน</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ใหม่</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">สถานะ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ชื่อ-นามสกุล ผู้มอบงาน</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">วันที่</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไฟล์</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ตรวจนับ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
           </tr>
@@ -66,29 +69,21 @@
             $i += 1 ?>
             <tr>
               <td>
-                <?php echo $row['DI_NAME']; ?>
+                <?php echo $row['u_name'], " ", $row['u_lastname']; ?>
               </td>
               <td>
-                <?php echo $row['DI_ID']; ?>
+                <?php echo $row['u_date']; ?>
               </td>
               <td>
-                <?php echo $row['DI_LOCATION']; ?>
-              </td>
-              <td>
-                <?php echo $row['DI_NLOCATION']; ?>
-              </td>
-              <td>
-                <?php echo $row['DI_DATE']; ?>
+                <?php echo "work ", $i; ?>
               </td>
               <td>
                 <div class="container">
                   <?php echo $row['DI_STATUS']; ?> &nbsp;
 
                   <!-- Trigger the modal with a button -->
-                  <button type="button" style="width:50px; height:50; font-size:10px;"
-                    class="btn btn-danger">delete</button>
-                  <button type="button" style="width:50px; height:50; font-size:10px;" class="btn btn-warning"
-                    data-toggle="modal" data-target="#myModal">edit</button>
+                  <button type="button" style="width:100px; height:50; font-size:10px;" class="btn btn-success"
+                    data-toggle="modal" data-target="#myModal">ตรวจนับ</button>
 
                   <!-- Modal -->
                   <div class="modal fade" id="myModal" role="dialog">
@@ -97,31 +92,44 @@
                       <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h4 class="modal-title">แก้ไขสถานะ</h4>
+                          <h4 class="modal-title">รายงาน</h4>
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                          <div class="form-group">
-                            <label></label>
-                            <select class="form-control" name="user_level">
-                              <option>รออนุมัติ</option>
-                              <option>อนุมัติ</option>
-                              <option>ไม่อนุมัติ</option>
-                            </select>
-                          </div>
-                          <div align="right">
-                            <button type="submit" style="width:50px; height:50; font-size:10px;" method="post"
-                              class="btn btn-success" onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>
+                          <textarea class="form-control" rows="5" placeholder="ใส่ข้อมูล"></textarea>
+                          <br />
+                          <div class="container">
+                            <div class="row">
+
+                              <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>เลือกสถานะข้อมูล</option>
+                                <option value="1">สมบูรณ์ทุกชิ้น</option>
+                                <option value="2">มีการส่งซ่อมหรือจำหน่ายออก</option>
+
+                              </select>
+
+                              <div class="col">
+                                <div class="col" align="right">
+                                  <button type="submit" style="width:100px; height:90; font-size:15px;" method="post"
+                                    class="btn btn-success" onclick="return confirm('ยืนยันการแก้ไขข้อมูล !!');">ส่งรายงาน
+
+                                  </button>
+
+                                </div>
+                              </div>
+
+                            </div>
                           </div>
 
                         </div>
                       </div>
 
                     </div>
-                  </div>
-
-                </div>
               </td>
+              <td>
+                <?php echo "รอดำเนินการ"; ?>
+              </td>
+
 
             <?php } ?>
           </tr>

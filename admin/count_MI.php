@@ -43,7 +43,12 @@ $row = mysqli_fetch_array($result);
                 <form action="admin_add_profile.php" method="post" accept-charset="utf-8">
                     <div class="container">
                         <div class="form-group col-sm-6">
+<<<<<<< HEAD
                             <h4>แต่งตั้งคณะกรรมการตรวจรับ</h4>
+=======
+                            <h4>แต่งตั้งคณะกรรมการตรวจนับ</h4>
+                            <br>
+>>>>>>> 11112e15bd5b3b2cf99e1e1ad4c0955cd1e0676f
                         </div>
                         <button type="button" style="width:100px; height:100; font-size:15px;" class="btn btn-danger" data-toggle="modal" data-target="#myModal">กรุณาอ่าน &#10071;</button>          
                         <div class="modal fade" id="myModal" role="dialog">
@@ -94,9 +99,15 @@ $row = mysqli_fetch_array($result);
                             <div class="form-group">
                                 <label>ตำแหน่งที่มอบหมาย</label>
                                 <select class="form-control" name="user_level">
+<<<<<<< HEAD
                                     <option value"bm">bm</option>
                                     <option value"bd">bd</option>
                                     <option value"by">by</option>
+=======
+                                    <option value="bm">คณะกรรมการตรวจรับวัสดุ</option>
+                                    <option value="bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
+                                    <option value="by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
+>>>>>>> 11112e15bd5b3b2cf99e1e1ad4c0955cd1e0676f
                                 </select>
                             </div>
                         </div>

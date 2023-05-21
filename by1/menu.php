@@ -9,6 +9,7 @@ session_start();
     <span class="brand-text  text-white">ระบบตรวจรับ RMUTT</span>
   </a>
 
+
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
@@ -25,12 +26,11 @@ session_start();
       </div>
     </div>
 
+    <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        <li class="nav-header">ระบบ</li>
-
 
         <li class="nav-item">
           <a href="index.php" data-toggle="dropdown" class="nav-link  <?php if ($menu == "index") {
@@ -50,23 +50,7 @@ session_start();
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
-            <p>ตรวจสอบรายงาน</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="finish.php" class="nav-link <?php if ($menu == "finish") {
-            echo "active";
-          } ?> ">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>เสร็จเรียบร้อย</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="officer_location_status.php" class="nav-link <?php if ($menu == "officer_location_status") {
-            echo "active";
-          } ?> ">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>เปลี่ยนสถานที่ครุภัณฑ์</p>
+            <p>ตรวจนับครุภัณฑ์ประจำปี</p>
           </a>
         </li>
         <li class="nav-item">

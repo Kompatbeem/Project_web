@@ -7,9 +7,10 @@ $row = mysqli_fetch_array($result);
 // echo $sql;
 // exit();
 
+
 ?>
 <div class="col-12 container">
-    <form action="admin_profile_db.php" method="post" accept-charset="utf-8">
+    <form action="officer_proflie_db.php" method="post" accept-charset="utf-8">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">

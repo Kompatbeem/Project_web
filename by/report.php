@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php $menu = "report"; ?>
-<?php include("head.php");
+<?php include("head.php"); ?>
+
+<?php
+include("condb.php");
+
+$result = $con->query("SELECT *
+FROM file_data
+JOIN user_file ON file_data.id_file = user_file.id_file
+WHERE user_file.user_id = " . $_SESSION['user_id'] . " AND user_file.file_status = 'รอตรวจรับ' ");
+
+
+if (!$result) {
+  die('Error: ' . mysqli_error($con));
+}
+
+
 
 ?>
 
@@ -35,50 +50,31 @@
         // echo '<meta http-equiv="refresh" content="1;url=worker.php" />';
       } ?>
 
-      <?php
-      include("condb.php"); // เชื่อมต่อฐานข้อมูล
-      
-      $result = $con->query("SELECT * FROM tbl_login ");
-      // $query_case = "SELECT * FROM di_data"
-      //  INNER JOIN tbl_login as u ON c.user_id = u.user_id
-      
-      // order by case_id asc" or die ("Error:" . mysqli_error());
-      // $result = mysqli_query($con, $query_case);
-      if (!$result) {
-        die('Error: ' . mysqli_error($con));
-      }
-      //   echo $query_case;
-//   exit();
-      ?>
 
 
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ชื่อ-นามสกุล ผู้มอบงาน</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">วันที่</th>
+
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไฟล์</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ตรวจนับ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
-            <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
-
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($result as $row) {
-            $i += 1 ?>
+
+          <?php
+          $i = 0;
+          foreach ($result as $row) {
+            $i++;
+            ?>
             <tr>
               <td>
-                <?php echo $row['u_name'], " ", $row['u_lastname']; ?>
-              </td>
-              <td>
-                <?php echo $row['u_date']; ?>
-              </td>
-              <td>
-                <?php echo "work ", $i; ?>
+                <a href="../admin/uploads/<?php echo $row['n_file']; ?>"><?php echo $row['n_file']; ?></a>
               </td>
               <td>
                 <div class="container">
+<<<<<<< HEAD
                   <?php echo $row['DI_STATUS']; ?> &nbsp;
 
                   <!-- Trigger the modal with a button -->
@@ -87,62 +83,58 @@
 
                   <!-- Modal -->
                   <div class="modal fade" id="myModal" role="dialog">
+=======
+                  <button type="button" style="width:100px; height:50; font-size:10px;"
+                    class="btn <?php echo ($row['f_select'] === 'ครบ') ? 'btn-success' : (($row['f_select'] === 'ไม่ครบ') ? 'btn-danger' : 'btn-warning'); ?> check-btn"
+                    data-toggle="modal" data-target="#myModal<?php echo $i; ?>">ตรวจรับ</button>
+                  <div class="modal fade" id="myModal<?php echo $i; ?>" role="dialog">
+>>>>>>> 11112e15bd5b3b2cf99e1e1ad4c0955cd1e0676f
                     <div class="modal-dialog">
-
-                      <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
                           <h4 class="modal-title">รายงาน</h4>
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                          <textarea class="form-control" rows="5" placeholder="ใส่ข้อมูล"></textarea>
-                          <br />
-                          <div class="container">
-                            <div class="row">
-
-                              <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected>เลือกสถานะข้อมูล</option>
-                                <option value="1">สมบูรณ์ทุกชิ้น</option>
-                                <option value="2">มีการส่งซ่อมหรือจำหน่ายออก</option>
-
-                              </select>
-
-                              <div class="col">
-                                <div class="col" align="right">
-                                  <button type="submit" style="width:100px; height:90; font-size:15px;" method="post"
-                                    class="btn btn-success" onclick="return confirm('ยืนยันการแก้ไขข้อมูล !!');">ส่งรายงาน
-
-                                  </button>
-
+                          <form action="addreport.php" method="post">
+                            <textarea name="text" class="form-control" rows="5" placeholder="ใส่ข้อมูล"></textarea>
+                            <br />
+                            <div class="container">
+                              <div class="row">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>" />
+                                <input type="hidden" name="upstatus" value="รออนุมัติ" />
+                                <input type="hidden" name="index" value="<?php echo $i; ?>" />
+                                <select name="select" class="form-select form-select-sm"
+                                  aria-label=".form-select-sm example">
+                                  <option selected>เลือกสถานะข้อมูล</option>
+                                  <option value="ครบ">ครบ</option>
+                                  <option value="ไม่ครบ">ไม่ครบ</option>
+                                </select>
+                                <div class="col">
+                                  <div class="col" align="right">
+                                    <button type="submit" style="width:100px; height:90; font-size:15px;"
+                                      class="btn btn-success"
+                                      onclick="return confirm('ยืนยันการส่งข้อมูล')">ส่งรายงาน</button>
+                                  </div>
                                 </div>
                               </div>
-
                             </div>
-                          </div>
-
+                          </form>
                         </div>
                       </div>
-
                     </div>
+                  </div>
               </td>
               <td>
-                <?php echo "รอดำเนินการ"; ?>
+                <?php echo $row['file_status']; ?>
               </td>
-
-
-            <?php } ?>
-          </tr>
+            </tr>
+          <?php } ?>
         </tbody>
       </table>
 
-      <!-- Main content -->
-
     </div><!--content-wrapper  -->
   </div><!--rapper  -->
-
-
-
 
   <?php include("footer.php"); ?>
 
