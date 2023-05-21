@@ -48,41 +48,35 @@ $row = mysqli_fetch_array($result);
             <br>
 
             <div class="col-12 container">
-                <form action="addmin_file.php" method="post" accept-charset="utf-8">
+                <form action="uploadfile.php"  method="post" enctype="multipart/form-data">
                     <div class="container">
                         <div class="form-group col-sm-6">
-                            <h4>แนบไฟล์</h4>
+                            <h4>อัพโหลดไฟล์</h4>
                             <br>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="user_id">เลขผู้ใช้</label>
                                 <input type="text" class="form-control" name="user_id">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>อัพโหลดไฟล์</label><br>
-                                <!-- <form action="/action_page.php"> -->     
-                                <input type="file"  name="myfile"><br>
-                                 <!-- <input type="submit"> -->
-                                <!-- </form> -->
+                                 Select image to upload:
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="id_file">Group</label>
                                 <input type="text" class="form-control" name="id_file">
                             </div>
-                        </div>
+                        </div> -->
         
                         <div>
                             <button type="submit" method="post" class="btn btn-success"
                                 onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>
                         </div>
-
-
-
                     </div>
                 </form>
             </div>

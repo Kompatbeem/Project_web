@@ -6,17 +6,17 @@
 <?php
 include("condb.php");
 
-$result = $con->query("SELECT * FROM tbl_login");
-$_SESSION['login'] = $result;
+$result = $con->query("SELECT *
+FROM file_data
+JOIN user_file ON file_data.id_file = user_file.id_file
+WHERE user_file.user_id = ".$_SESSION['user_id']." AND user_file.file_status = 'รอตรวจรับ' ");
+
 
 if (!$result) {
   die('Error: ' . mysqli_error($con));
 }
 
-$result_file = $con->query("SELECT * FROM file_data WHERE file_status = 'รอตรวจรับ'");
-if (!$result_file) {
-  die('Error: ' . mysqli_error($con));
-}
+
 
 ?>
 
@@ -55,8 +55,7 @@ if (!$result_file) {
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ชื่อ-นามสกุล ผู้มอบงาน</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">วันที่</th>
+  
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไฟล์</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ตรวจรับ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
@@ -66,26 +65,16 @@ if (!$result_file) {
 
           <?php
           $i = 0;
-          foreach ($result_file as $file_row) {
+          foreach ($result as $row) {
             $i++;
-            $row = $result->fetch_assoc();
-            ?>
+          ?>
             <tr>
               <td>
-                <?php echo $row['u_name'], " ", $row['u_lastname']; ?>
-              </td>
-              <td>
-                <?php echo $row['u_date']; ?>
-              </td>
-              <td>
-                <?php echo $file_row['id_file']; ?>
+                <a href="../admin/uploads/<?php echo $row['n_file']; ?>" ><?php echo $row['n_file']; ?></a>
               </td>
               <td>
                 <div class="container">
-                  <button type="button" style="width:100px; height:50; font-size:10px;"
-                    class="btn <?php echo ($file_row['f_select'] === 'ครบ') ? 'btn-success' : (($file_row['f_select'] === 'ไม่ครบ') ? 'btn-danger' : 'btn-warning'); ?> check-btn"
-                    data-toggle="modal" data-target="#myModal<?php echo $i; ?>">ตรวจรับ</button>
-
+                  <button type="button" style="width:100px; height:50; font-size:10px;" class="btn <?php echo ($row['f_select'] === 'ครบ') ? 'btn-success' : (($row['f_select'] === 'ไม่ครบ') ? 'btn-danger' : 'btn-warning'); ?> check-btn" data-toggle="modal" data-target="#myModal<?php echo $i; ?>">ตรวจรับ</button>
                   <div class="modal fade" id="myModal<?php echo $i; ?>" role="dialog">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -99,20 +88,17 @@ if (!$result_file) {
                             <br />
                             <div class="container">
                               <div class="row">
-                                <input type="hidden" name="id_file" value="<?php echo $file_row['id_file']; ?>" />
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>" />
                                 <input type="hidden" name="upstatus" value="รออนุมัติ" />
                                 <input type="hidden" name="index" value="<?php echo $i; ?>" />
-                                <select name="select" class="form-select form-select-sm"
-                                  aria-label=".form-select-sm example">
+                                <select name="select" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                   <option selected>เลือกสถานะข้อมูล</option>
                                   <option value="ครบ">ครบ</option>
                                   <option value="ไม่ครบ">ไม่ครบ</option>
                                 </select>
                                 <div class="col">
                                   <div class="col" align="right">
-                                    <button type="submit" style="width:100px; height:90; font-size:15px;"
-                                      class="btn btn-success"
-                                      onclick="return confirm('ยืนยันการส่งข้อมูล')">ส่งรายงาน</button>
+                                    <button type="submit" style="width:100px; height:90; font-size:15px;" class="btn btn-success" onclick="return confirm('ยืนยันการส่งข้อมูล')">ส่งรายงาน</button>
                                   </div>
                                 </div>
                               </div>
@@ -124,7 +110,7 @@ if (!$result_file) {
                   </div>
               </td>
               <td>
-                <?php echo $file_row['file_status']; ?>
+                <?php echo $row['file_status']; ?>
               </td>
             </tr>
           <?php } ?>

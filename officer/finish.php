@@ -6,21 +6,11 @@
 <?php
 include("condb.php");
 
-$result = $con->query("SELECT * FROM tbl_login");
-$_SESSION['login'] = $result;
-
-if (!$result) {
-    die('Error: ' . mysqli_error($con));
-}
-
-$result_file = $con->query("SELECT *
-FROM file_data
-JOIN user_file ON file_data.id_file = user_file.id_file
-WHERE user_file.user_id = ".$_SESSION['user_id']." AND user_file.file_status = 'สำเร็จ' ");
-
-if (!$result_file) {
-    die('Error: ' . mysqli_error($con));
-}
+$result = $con->query("SELECT tbl_login.u_name, tbl_login.user_level, file_data.n_file, user_file.file_status
+      FROM tbl_login
+      JOIN user_file ON tbl_login.user_id = user_file.user_id
+      JOIN file_data ON file_data.id_file = user_file.id_file
+      WHERE user_file.file_status = 'สำเร็จ' ");
 
 ?>
 
@@ -59,6 +49,8 @@ if (!$result_file) {
             <table id="example1" class="table table-bordered table-striped dataTable">
                 <thead>
                     <tr role="row" class="info">
+                        <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ผู้จัดทำ</th>
+                        <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ตำแหน่ง</th>
                         <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไฟล์</th>
                         <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
                     </tr>
@@ -66,17 +58,23 @@ if (!$result_file) {
                 <tbody>
 
                     <?php
-                    $i = 0;
-                    foreach ($result_file as $file_row) {
+
+                    foreach ($result as $row) {
                         $i++;
-                        $row = $result->fetch_assoc();
+
                         ?>
                         <tr>
                             <td>
-                                <?php echo $file_row['n_file']; ?>
+                                <?php echo $row['u_name']; ?>
                             </td>
                             <td>
-                                <?php echo $file_row['file_status']; ?>
+                                <?php echo $row['user_level']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['n_file']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['file_status']; ?>
                             </td>
                         </tr>
                     <?php } ?>

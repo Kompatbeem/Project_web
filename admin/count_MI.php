@@ -51,7 +51,7 @@ $row = mysqli_fetch_array($result);
                 <form action="admin_add_profile.php" method="post" accept-charset="utf-8">
                     <div class="container">
                         <div class="form-group col-sm-6">
-                            <h4>แต่งตั้งคณะกรรมการตรวจรับ</h4>
+                            <h4>แต่งตั้งคณะกรรมการตรวจนับ</h4>
                             <br>
                         </div>
                         <div class="col-sm-6">
@@ -82,9 +82,9 @@ $row = mysqli_fetch_array($result);
                             <div class="form-group">
                                 <label>ตำแหน่งที่มอบหมาย</label>
                                 <select class="form-control" name="user_level">
-                                    <option values"bm">คณะกรรมการตรวจรับวัสดุ</option>
-                                    <option values"bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
-                                    <option values"by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
+                                    <option value="bm">คณะกรรมการตรวจรับวัสดุ</option>
+                                    <option value="bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
+                                    <option value="by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
                                 </select>
                             </div>
                         </div>
