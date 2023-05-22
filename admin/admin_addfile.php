@@ -48,7 +48,7 @@ $row = mysqli_fetch_array($result);
             <br>
 
             <div class="col-12 container">
-                <form action="uploadfile.php"  method="post" enctype="multipart/form-data">
+                <form action="uploadfile.php" method="post" enctype="multipart/form-data">
                     <div class="container">
                         <div class="form-group col-sm-6">
                             <h4>อัพโหลดไฟล์ &#128194;</h4>
@@ -62,8 +62,13 @@ $row = mysqli_fetch_array($result);
                         </div> -->
                         <div class="col-sm-6">
                             <div class="form-group">
+<<<<<<< HEAD
                                  Select file to upload:
                                     <input type="file" name="fileToUpload" id="fileToUpload">
+=======
+                                Select file to upload:
+                                <input type="file" name="fileToUpload" id="fileToUpload">
+>>>>>>> 56b18dd2e38c530c92cb8cbf4052381601f314b9
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">
@@ -72,7 +77,7 @@ $row = mysqli_fetch_array($result);
                                 <input type="text" class="form-control" name="id_file">
                             </div>
                         </div> -->
-        
+
                         <div>
                             <button type="submit" method="post" class="btn btn-success"
                                 onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>

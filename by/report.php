@@ -108,7 +108,7 @@ if (!$result) {
                                   aria-label=".form-select-sm example">
                                   <option selected>เลือกสถานะข้อมูล</option>
                                   <option value="ครบ">ครบ</option>
-                                  <option value="ไม่ครบ">ไม่ครบ</option>
+                                  <option value="ส่งซ่อมหรือจำหน่าย">ส่งซ่อมหรือจำหน่าย</option>
                                 </select>
                                 <div class="col">
                                   <div class="col" align="right">
