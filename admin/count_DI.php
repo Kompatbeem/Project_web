@@ -56,25 +56,11 @@ WHERE user_file.user_id = " . $_SESSION['user_id']);
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-<<<<<<< HEAD
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เลขผู้ใช้</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ไอดี</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสผ่าน</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานะ</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 25%;">ชื่อ-นามสกุล</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เบอร์มือถือ</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">อีเมล</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 40%;">วัน-เวลา</th>
-            
-=======
-
-
             <th tabindex="0" rowspan="1" colspan="1" style="width: 25%;">รายชื่อผู้ตรวจ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เบอร์มือถือ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 30%;">งานที่มอบหมาย</th>
 
->>>>>>> 56b18dd2e38c530c92cb8cbf4052381601f314b9
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
           </tr>

@@ -77,14 +77,7 @@ session_start();
             <p>รายชื่อคณะกรรมการ</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="location_DI.php" class="nav-link <?php if ($menu == "location_DI") {
-            echo "active";
-          } ?> ">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>เปลี่ยนสถานที่ครุภัณฑ์</p>
-          </a>
-        </li>
+        
         <li class="nav-item">
           <a href="location_status.php" class="nav-link <?php if ($menu == "location_status") {
             echo "active";

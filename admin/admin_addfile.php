@@ -62,13 +62,9 @@ $row = mysqli_fetch_array($result);
                         </div> -->
                         <div class="col-sm-6">
                             <div class="form-group">
-<<<<<<< HEAD
-                                 Select file to upload:
+                            Select file to upload:
                                     <input type="file" name="fileToUpload" id="fileToUpload">
-=======
-                                Select file to upload:
-                                <input type="file" name="fileToUpload" id="fileToUpload">
->>>>>>> 56b18dd2e38c530c92cb8cbf4052381601f314b9
+
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">

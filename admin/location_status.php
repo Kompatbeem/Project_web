@@ -96,8 +96,7 @@
                 <?php echo $row['DI_STATUS']; ?>                     
               </td>
               <td>
-              <a href="location_DI.php" style="width:50px; height:50; font-size:15px;" class="btn btn-warning  btn-sm" onclick="return confirm('ต้องการแก้ไขข้อมูลหรือไม่ !!');"> แก้ไข </a>
-              <a style="width:50px; height:50; font-size:15px;" class="btn btn-danger  btn-sm" href="location_del.php?DI_ID=<?= $row['DI_ID'];?>" 
+              <a style="width:50px; height:50; font-size:15px;" class="btn btn-danger  btn-sm" href="location_del.php?id=<?= $row['DI_ID'];?>" 
             onclick="return confirm('ยืนยันการลบข้อมูล !!');">
            ลบ
           </a>

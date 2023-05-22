@@ -9,7 +9,7 @@ include('condb.php');
 
 $ID=$_GET["id"];
 $sql = "UPDATE  di_data
-SET DI_NLOCATION = ' ',DI_STATUS = ''
+SET DI_STATUS = 'อนุมัติ','ไม่อนุมัติ'
 WHERE DI_ID = $ID";
 
 $result = mysqli_query($con, $sql) or die("Error in query: $sql " . mysqli_error());

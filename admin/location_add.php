@@ -15,10 +15,10 @@ if (!empty($_POST["DI_NAME"]) && !empty($_POST["DI_CODE"]) && !empty($_POST["DI_
     $DI_DATE = mysqli_real_escape_string($con, $_POST["DI_DATE"]);
 
 
-
-    $sql = "INSERT INTO di_data (DI_NAME, DI_CODE, DI_LOCATION, DI_NLOCATION, DI_DATE)
-VALUES ('$DI_NAME', '$DI_CODE', '$DI_LOCATION', '$DI_NLOCATION', '$DI_DATE')";
-
+    $ID=$_GET["id"];
+    $sql = "UPDATE  di_data
+    SET DI_NLOCATION = ' $DI_NLOCATION',DI_STATUS = 'รออนุมัติ'
+    WHERE DI_ID = $ID";
 
     $result = mysqli_query($con, $sql) or die("Error in query: $sql " . mysqli_error());
     mysqli_close($con);

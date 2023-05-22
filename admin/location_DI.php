@@ -40,8 +40,10 @@
 
       <?php
       include("condb.php"); // เชื่อมต่อฐานข้อมูล
-
-      $result = $con->query("SELECT * FROM di_data");
+      $ID=$_GET["id"];
+      $sql = "SELECT * FROM di_data WHERE DI_ID = $ID";
+      $result = mysqli_query($con, $sql) or die("Error in query: $sql" . mysqli_error());
+      $row = mysqli_fetch_array($result);
       $getDI_CODE = $con->query("SELECT * FROM DI_CODE");
       // $query_case = "SELECT * FROM di_data"
       //  INNER JOIN tbl_login as u ON c.user_id = u.user_id
@@ -55,13 +57,10 @@
       //   exit();
       ?>
        <div class="col-12 container">
-          <?php foreach ($result as $row) 
-          if ($x === 0) {
-            break;
-         }{ ?>
+        
             <tr>
               <td>
-              <form action="location_add.php" method="post" accept-charset="utf-8">
+              <form action="location_add.php?id=<?php echo $row['DI_ID']; ?>" method="post" accept-charset="utf-8">
                     <div class="container">
                         <div class="form-group col-sm-6">
                             <h4>เปลี่ยนสถานที่ครุภัณฑ์</h4>
@@ -98,7 +97,7 @@
                                 <input type="date" class="form-control" value="<?php echo date('YYYY-MM-DD'); ?>" name="DI_DATE">                                   
                             </div>
                         </div>
-                        <?php } ?>
+                       
         <div text-align="left">
         <button type="submit" method="post" class="btn btn-success"
                 onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึกข้อมูล</button>
