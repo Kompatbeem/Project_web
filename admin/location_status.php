@@ -57,7 +57,8 @@
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ใหม่</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานะ</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เมนู</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">อัพเดทสถานที่</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ลบรายการ</th>
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
           </tr>
@@ -82,21 +83,19 @@
               <td>
                 <?php echo $row['DI_DATE']; ?>
               </td>
-              <td>
-           <!-- <div class="form-group">
-                                <label></label>
-                                <select class="form-control" name="DI_STATUS">
-                                    <option>รออนุมัติ</option>
-                                    <option>อนุมัติ</option>
-                                    <option>ไม่อนุมัติ</option>
-                                </select>
-                                <button type="submit" method="post" class="btn btn-success"
-                            onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>  
-                            </div> -->                             
+              <td>                            
                 <?php echo $row['DI_STATUS']; ?>                     
               </td>
+              
               <td>
-              <a style="width:50px; height:50; font-size:15px;" class="btn btn-danger  btn-sm" href="location_del.php?id=<?= $row['DI_ID'];?>" 
+              <a style="width:50px; height:50; font-size:10px;" class="btn btn-success  btn-sm" href="update_location.php?id=<?= $row['DI_ID'];?>" 
+            onclick="return confirm('ยืนยันการอัพเดทข้อมูล !!');">
+           Update
+          </a>
+          </td>
+              
+              <td>
+              <a style="width:50px; height:50; font-size:10px;" class="btn btn-danger  btn-sm" href="location_del.php?id=<?= $row['DI_ID'];?>" 
             onclick="return confirm('ยืนยันการลบข้อมูล !!');">
            ลบ
           </a>
