@@ -37,12 +37,17 @@
       include("condb.php"); // เชื่อมต่อฐานข้อมูล
       
       $result = $con->query("SELECT * FROM tbl_login");
-      // $query_case = "SELECT * FROM di_data"
-      //  INNER JOIN tbl_login as u ON c.user_id = u.user_id
-      
-      // order by case_id asc" or die ("Error:" . mysqli_error());
-      // $result = mysqli_query($con, $query_case);
+      $_SESSION['login'] = $result;
       if (!$result) {
+        die('Error: ' . mysqli_error($con));
+      }
+
+      $result_file = $con->query("SELECT *
+FROM file_data
+JOIN user_file ON file_data.id_file = user_file.id_file
+WHERE user_file.user_id = " . $_SESSION['user_id']);
+
+      if (!$result_file) {
         die('Error: ' . mysqli_error($con));
       }
       //   echo $query_case;
@@ -51,51 +56,54 @@
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เลขผู้ใช้</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไอดี</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสผ่าน</th>
+
+
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 25%;">รายชื่อผู้ตรวจ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 25%;">ชื่อ-นามสกุล</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เบอร์มือถือ</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">อีเมล</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">วัน-เวลา</th>
-            
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 30%;">งานที่มอบหมาย</th>
+
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
           </tr>
         </thead>
         <tbody>
           <?php foreach ($result as $row) {
-            $i += 1 ?>
-            <tr>
-              <td>
-                <?php echo $row['user_id']; ?>
-              </td>
-              <td>
-                <?php echo $row['username']; ?>
-              </td>
-              <td>
-                <?php echo $row['password']; ?>
-              </td>
-              <td>
-                <?php echo $row['user_level']; ?>
-              </td>
-              <td>
-                <?php echo $row['u_name'] . ' ' . $row['u_lastname'] ?>
-              </td>
-              <td>
-                <?php echo $row['u_tel']; ?>
-              </td>
-              <td>
-                <?php echo $row['u_email']; ?>
-              </td>
-              <td>
-                <?php echo $row['u_date']; ?>
-              </td>
-
-            <?php } ?>
-          </tr>
+            if ($row['user_level'] != 'admin') {
+              ?>
+              <tr>
+                <td>
+                  <?php echo $row['u_name'] . ' ' . $row['u_lastname']; ?>
+                </td>
+                <td>
+                  <?php echo $row['user_level']; ?>
+                </td>
+                <td>
+                  <?php echo $row['u_tel']; ?>
+                </td>
+                <td>
+                  <?php
+                  $user_id = $row['user_id'];
+                  $file_query = "SELECT file_data.n_file 
+            FROM file_data 
+            JOIN user_file ON file_data.id_file = user_file.id_file 
+            WHERE user_file.user_id = $user_id";
+                  $result_file = $con->query($file_query);
+                  if ($result_file) {
+                    foreach ($result_file as $file_row) {
+                      echo $file_row['n_file'] . '<br>';
+                    }
+                  }
+                  ?>
+                </td>
+              </tr>
+              <?php
+            }
+          }
+          ?>
         </tbody>
+
+
       </table>
 
       <!-- Main content -->

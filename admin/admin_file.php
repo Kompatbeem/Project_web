@@ -40,14 +40,10 @@
 
       <?php
       include("condb.php"); // เชื่อมต่อฐานข้อมูล
-
+      
       $result = $con->query("SELECT * FROM tbl_login");
       $getNameFile = $con->query("SELECT * FROM file_data");
-      // $query_case = "SELECT * FROM di_data"
-      //  INNER JOIN tbl_login as u ON c.user_id = u.user_id
 
-      // order by case_id asc" or die ("Error:" . mysqli_error());
-      // $result = mysqli_query($con, $query_case);
       if (!$result) {
         die('Error: ' . mysqli_error($con));
       }
@@ -57,35 +53,39 @@
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อผู้ใช้</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อ ผู้ตรวจ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">เลือกไฟล์</th>
-            <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
+
           </tr>
         </thead>
         <tbody class="test">
-          <?php foreach ($result as $row) { ?>
-            <tr>
-              <td>
-                <?php echo $row['u_name']; ?>
-              </td>
-              <td>
-                <form action="insert_user_file.php" method="POST">
-                  <input type="hidden" name="get_user_id" value="<?php echo $row['user_id']; ?>" />
-                  <select class="postName form-control js-example-basic-multiple" style="width:500px" name="selected_files[]" multiple>
-                    <?php foreach ($getNameFile as $file) { ?>
-                      <option value="<?php echo $file['id_file']; ?>"><?php echo $file['n_file']; ?></option>
-                    <?php } ?>
-                  </select>
-                  <button type="submit" class="btn btn-primary btn-floating mx-1 button_update">
-                    อัพเดท
-                  </button>
-                </form>
-              </td>
-            </tr>
-          <?php } ?>
+          <?php foreach ($result as $row) {
+            if ($row['user_level'] != 'admin' && $row['user_level'] != 'officer') { ?>
+              <tr>
+                <td>
+                  <?php echo $row['u_name'] . " " . $row['u_lastname'] ?>
+                </td>
+                <td>
+                  <form action="insert_user_file.php" method="POST">
+                    <input type="hidden" name="get_user_id" value="<?php echo $row['user_id']; ?>" />
+                    <select class="postName form-control js-example-basic-multiple" style="width:500px"
+                      name="selected_files[]" multiple>
+                      <?php foreach ($getNameFile as $file) { ?>
+                        <option value="<?php echo $file['id_file']; ?>"><?php echo $file['n_file']; ?></option>
+                      <?php } ?>
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-floating mx-1 button_update"
+                      onclick="return confirm('มอบหมายงาน');">
+                      มอบหมาย
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            <?php }
+          } ?>
         </tbody>
-
       </table>
+
 
       <!-- Main content -->
 
