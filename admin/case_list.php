@@ -55,21 +55,14 @@ if (!$result) {
           <?php echo $row['DI_DATE']; ?>
         </td>
         <td>
-<<<<<<< HEAD
           <?php echo $row['DI_LOCATION']; ?>
         </td>
         <td>
-        <div align="center">
-        <a href="location_DI.php"><button type="button"  style="width:50px; height:50; font-size:10px;" class="btn btn-warning">แก้ไข </button>
-    </div>
-    </td>
-=======
           <div align="center" method="post" action="location_DI_list.php">
             <a href="location_DI.php"><button type="button" style="width:50px; height:50; font-size:10px;"
                 class="btn btn-warning">แก้ไข </button>
           </div>
         </td>
->>>>>>> 11112e15bd5b3b2cf99e1e1ad4c0955cd1e0676f
       <?php } ?>
     </tr>
   </tbody>

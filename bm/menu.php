@@ -50,11 +50,7 @@ session_start();
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
-<<<<<<< HEAD
-            <p>รายการตรวจรับวัสดุและครุภัณฑ์สั่งซื้อ</p>
-=======
             <p>ตรวจรับวัสดุสั่งซื้อ</p>
->>>>>>> 11112e15bd5b3b2cf99e1e1ad4c0955cd1e0676f
           </a>
         </li>
         <li class="nav-item">
@@ -62,11 +58,7 @@ session_start();
             echo "active";
           } ?> ">
             <i class="nav-icon fas fa-edit"></i>
-<<<<<<< HEAD
-            <p>ตรวจนับครุภัณฑ์ประจำปี</p>
-=======
             <p>กำลังดำเนินการ</p>
->>>>>>> 11112e15bd5b3b2cf99e1e1ad4c0955cd1e0676f
           </a>
         </li>
         <li class="nav-item">

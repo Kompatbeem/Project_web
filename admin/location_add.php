@@ -6,7 +6,7 @@ include('condb.php');
 // echo "</pre>";
 // exit();
 
-if (!empty($_POST["DI_NAME"]) && !empty($_POST["DI_CODE"]) && !empty($_POST["DI_LOCATION"])  && !empty($_POST["DI_DATE"])) {
+if (!empty($_POST["DI_NAME"]) && !empty($_POST["DI_CODE"]) && !empty($_POST["DI_LOCATION"]) && !empty($_POST["DI_NLOCATION"])  && !empty($_POST["DI_DATE"])) {
 
     $DI_NAME = mysqli_real_escape_string($con, $_POST["DI_NAME"]);
     $DI_ID = mysqli_real_escape_string($con, $_POST["DI_CODE"]);
@@ -16,15 +16,8 @@ if (!empty($_POST["DI_NAME"]) && !empty($_POST["DI_CODE"]) && !empty($_POST["DI_
 
 
 
-    $sql = "UPDATE di_data SET 
-    DI_NAME ='$DI_NAME',
-	DI_CODE ='$DI_CODE',
-	DI_LOCATION ='$DI_LOCATION',
-	DI_NLOCATION ='$DI_NLOCATION',
-	DI_DATE ='$DI_DATE'
-    WHERE DI_CODE = $DI_CODE";
-//     (DI_NAME, DI_ID, DI_LOCATION, DI_NLOCATION, DI_DATE)
-// VALUES ('$DI_NAME', '$DI_ID', '$DI_LOCATION', '$DI_NLOCATION', '$DI_DATE')";
+    $sql = "INSERT INTO di_data (DI_NAME, DI_CODE, DI_LOCATION, DI_NLOCATION, DI_DATE)
+VALUES ('$DI_NAME', '$DI_CODE', '$DI_LOCATION', '$DI_NLOCATION', '$DI_DATE')";
 
 
     $result = mysqli_query($con, $sql) or die("Error in query: $sql " . mysqli_error());

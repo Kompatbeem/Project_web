@@ -51,7 +51,7 @@ $row = mysqli_fetch_array($result);
                 <form action="uploadfile.php"  method="post" enctype="multipart/form-data">
                     <div class="container">
                         <div class="form-group col-sm-6">
-                            <h4>อัพโหลดไฟล์</h4>
+                            <h4>อัพโหลดไฟล์ &#128194;</h4>
                             <br>
                         </div>
                         <!-- <div class="col-sm-6">
@@ -62,7 +62,7 @@ $row = mysqli_fetch_array($result);
                         </div> -->
                         <div class="col-sm-6">
                             <div class="form-group">
-                                 Select image to upload:
+                                 Select file to upload:
                                     <input type="file" name="fileToUpload" id="fileToUpload">
                             </div>
                         </div>
