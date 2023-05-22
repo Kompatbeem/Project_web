@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $menu = "officer_location_status"; ?>
+<?php $menu = "location_status"; ?>
 <?php include("head.php"); ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -51,12 +51,14 @@
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อครุภัณฑ์</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสครุภัณฑ์</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสครุภัณฑ์</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อครุภัณฑ์</th> 
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ปัจจุบัน</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ใหม่</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">สถานะ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานะ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">แก้ไขสถานะ</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 6%;">ลบรายการ</th>
             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th> -->
 
           </tr>
@@ -65,61 +67,45 @@
           <?php foreach ($result as $row) {
             $i += 1 ?>
             <tr>
+            <td>
+                <?php echo $row['DI_CODE']; ?>
+              </td>
               <td>
                 <?php echo $row['DI_NAME']; ?>
               </td>
-              <td>
-                <?php echo $row['DI_ID']; ?>
-              </td>
+            
               <td>
                 <?php echo $row['DI_LOCATION']; ?>
               </td>
               <td>
                 <?php echo $row['DI_NLOCATION']; ?>
               </td>
-              <td>         
+              <td>
                 <?php echo $row['DI_DATE']; ?>
               </td>
               <td>
-              <div class="container">
-              <?php echo $row['DI_STATUS']; ?>  &nbsp;                         
-           
-  <!-- Trigger the modal with a button -->
-  <button type="button" style="width:50px; height:50; font-size:10px;" method="post" class="btn btn-danger" onclick="return confirm('ยืนยันการไขข้อมูล !!');">delete</button>
-  <button type="button" style="width:50px; height:50; font-size:10px;" class="btn btn-warning" data-toggle="modal" data-target="#myModal">edit</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-        <h4 class="modal-title">แก้ไขสถานะ</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-        <div class="form-group">
+           <!-- <div class="form-group">
                                 <label></label>
-                                <select class="form-control" name="user_level">
+                                <select class="form-control" name="DI_STATUS">
                                     <option>รออนุมัติ</option>
                                     <option>อนุมัติ</option>
                                     <option>ไม่อนุมัติ</option>
                                 </select>
-                            </div>
-                            <div align="right">
-                            <button type="submit" style="width:50px; height:50; font-size:10px;" method="post" class="btn btn-success" 
-                                onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>
-                        </div>
-
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
+                                <button type="submit" method="post" class="btn btn-success"
+                            onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>  
+                            </div> -->                             
+                <?php echo $row['DI_STATUS']; ?>                     
               </td>
+              <td>
+              <a style="width:80px; height:50; font-size:10px;" class="btn btn-success btn-sm" href="location_yes.php?id=<?= $row['DI_ID'];?>" 
+            onclick="return confirm('ยืนยันการลบข้อมูล !!');">อนุมัติ</a>
+            <a style="width:80px; height:50; font-size:5px;" class="btn btn-danger btn-sm" href="location_no.php?id=<?= $row['DI_ID'];?>" 
+            onclick="return confirm('ยืนยันการลบข้อมูล !!');">ไม่อนุมัติ</a>
+          </td>
+          <td>
+              <a style="width:50px; height:50; font-size:10px;" class="btn btn-danger  btn-sm" href="location_del.php?id=<?= $row['DI_ID'];?>" 
+            onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a>
+          </td>
 
             <?php } ?>
           </tr>
