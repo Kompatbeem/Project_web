@@ -15,7 +15,8 @@ $row = mysqli_fetch_array($result);
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="user_id">ไอดีผู้ใช้</label>
-                    <input type="้hidden" class="form-control" value="<?php echo $row['user_id']; ?>" name="user_id">
+                    <input type="้hidden" class="form-control" value="<?php echo $row['user_id']; ?>" name="user_id"
+                        readonly>
                 </div>
             </div>
             <div class="col-sm-6">

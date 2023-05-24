@@ -34,12 +34,26 @@ if (isset($_POST['username'])) {
                   Header("location: bd");
             } elseif ($row["user_level"] == "by") {
                   Header("location: by");
-            } else {
-                  echo "<script>";
-                  echo "alert(\" UserName หรือ password ไม่ถูกต้อง \");";
-                  echo "window.history.back()";
-                  echo "</script>";
             }
+      } else {
+
+            ?>
+            <!DOCTYPE html>
+            <html>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+            <body>
+                  <script type="text/javascript">
+                        swal("", "ชื่อผู้ใช้หรือรหัสไม่ถูกต้อง !!!", "error")
+                  </script>
+                  <meta http-equiv="refresh" content="1;url=index.php" />
+            </body>
+
+            </html>
+            <?php
+
+
       }
 }
 ?>

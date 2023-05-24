@@ -41,7 +41,7 @@ VALUES ('$username', '$password', '$u_name', '$u_lastname', '$user_level','$u_da
 
     <body>
         <script type="text/javascript">
-            swal("", "ผิดพลาด !!", "error")
+            swal("", "กรุณากรอกข้อมูลให้ครบ !!", "error")
         </script>
         <meta http-equiv="refresh" content="1;url=count_MI.php" />
     </body>

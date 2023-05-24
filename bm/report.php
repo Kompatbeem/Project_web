@@ -3,13 +3,26 @@
 <?php $menu = "report"; ?>
 <?php include("head.php"); ?>
 
+<script>
+  function validateForm(index) {
+    var textarea = document.getElementById("text" + index).value;
+    var select = document.getElementById("select" + index).value;
+
+    if (textarea.trim() === "" || select === "เลือกสถานะข้อมูล") {
+      document.getElementById("submitBtn" + index).disabled = true;
+    } else {
+      document.getElementById("submitBtn" + index).disabled = false;
+    }
+  }
+</script>
+
 <?php
 include("condb.php");
 
 $result = $con->query("SELECT *
 FROM file_data
 JOIN user_file ON file_data.id_file = user_file.id_file
-WHERE user_file.user_id = ".$_SESSION['user_id']." AND user_file.file_status = 'รอตรวจรับ' ");
+WHERE user_file.user_id = " . $_SESSION['user_id'] . " AND user_file.file_status = 'รอตรวจรับ' ");
 
 
 if (!$result) {
@@ -55,7 +68,7 @@ if (!$result) {
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-  
+
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ไฟล์</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ตรวจรับ</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">สถานะ</th>
@@ -67,14 +80,16 @@ if (!$result) {
           $i = 0;
           foreach ($result as $row) {
             $i++;
-          ?>
+            ?>
             <tr>
               <td>
-                <a href="../admin/uploads/<?php echo $row['n_file']; ?>" ><?php echo $row['n_file']; ?></a>
+                <a href="../admin/uploads/<?php echo $row['n_file']; ?>"><?php echo $row['n_file']; ?></a>
               </td>
               <td>
                 <div class="container">
-                  <button type="button" style="width:100px; height:50; font-size:10px;" class="btn <?php echo ($row['f_select'] === 'ครบ') ? 'btn-success' : (($row['f_select'] === 'ไม่ครบ') ? 'btn-danger' : 'btn-warning'); ?> check-btn" data-toggle="modal" data-target="#myModal<?php echo $i; ?>">ตรวจรับ</button>
+                  <button type="button" style="width:100px; height:50; font-size:10px;"
+                    class="btn <?php echo ($row['f_select'] === 'ครบ') ? 'btn-success' : (($row['f_select'] === 'ไม่ครบ') ? 'btn-danger' : 'btn-warning'); ?> check-btn"
+                    data-toggle="modal" data-target="#myModal<?php echo $i; ?>">ตรวจรับ</button>
                   <div class="modal fade" id="myModal<?php echo $i; ?>" role="dialog">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -83,27 +98,34 @@ if (!$result) {
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
+
                           <form action="addreport.php" method="post">
-                            <textarea name="text" class="form-control" rows="5" placeholder="ใส่ข้อมูล"></textarea>
+                            <textarea id="text<?php echo $i; ?>" name="text" class="form-control" rows="5"
+                              placeholder="ใส่ข้อมูล" oninput="validateForm(<?php echo $i; ?>)"></textarea>
                             <br />
                             <div class="container">
                               <div class="row">
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>" />
                                 <input type="hidden" name="upstatus" value="รออนุมัติ" />
                                 <input type="hidden" name="index" value="<?php echo $i; ?>" />
-                                <select name="select" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <select id="select<?php echo $i; ?>" name="select" class="form-select form-select-sm"
+                                  aria-label=".form-select-sm example" onchange="validateForm(<?php echo $i; ?>)">
                                   <option selected>เลือกสถานะข้อมูล</option>
                                   <option value="ครบ">ครบ</option>
                                   <option value="ไม่ครบ">ไม่ครบ</option>
                                 </select>
                                 <div class="col">
                                   <div class="col" align="right">
-                                    <button type="submit" style="width:100px; height:90; font-size:15px;" class="btn btn-success" onclick="return confirm('ยืนยันการส่งข้อมูล')">ส่งรายงาน</button>
+                                    <button id="submitBtn<?php echo $i; ?>" type="submit"
+                                      style="width:100px; height:90; font-size:15px;" class="btn btn-success"
+                                      onclick="return confirm('ยืนยันการส่งข้อมูล')" disabled>ส่งรายงาน</button>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </form>
+
+
                         </div>
                       </div>
                     </div>

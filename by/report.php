@@ -3,6 +3,19 @@
 <?php $menu = "report"; ?>
 <?php include("head.php"); ?>
 
+<script>
+  function validateForm(index) {
+    var textarea = document.getElementById("text" + index).value;
+    var select = document.getElementById("select" + index).value;
+
+    if (textarea.trim() === "" || select === "เลือกสถานะข้อมูล") {
+      document.getElementById("submitBtn" + index).disabled = true;
+    } else {
+      document.getElementById("submitBtn" + index).disabled = false;
+    }
+  }
+</script>
+
 <?php
 include("condb.php");
 
@@ -74,21 +87,10 @@ if (!$result) {
               </td>
               <td>
                 <div class="container">
-<<<<<<< HEAD
-                  <?php echo $row['DI_STATUS']; ?> &nbsp;
-
-                  <!-- Trigger the modal with a button -->
-                  <button type="button" style="width:100px; height:50; font-size:10px;" class="btn btn-success"
-                    data-toggle="modal" data-target="#myModal">ตรวจนับ</button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="myModal" role="dialog">
-=======
                   <button type="button" style="width:100px; height:50; font-size:10px;"
                     class="btn <?php echo ($row['f_select'] === 'ครบ') ? 'btn-success' : (($row['f_select'] === 'ไม่ครบ') ? 'btn-danger' : 'btn-warning'); ?> check-btn"
-                    data-toggle="modal" data-target="#myModal<?php echo $i; ?>">ตรวจรับ</button>
+                    data-toggle="modal" data-target="#myModal<?php echo $i; ?>">ตรวจนับ</button>
                   <div class="modal fade" id="myModal<?php echo $i; ?>" role="dialog">
->>>>>>> 11112e15bd5b3b2cf99e1e1ad4c0955cd1e0676f
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -96,25 +98,27 @@ if (!$result) {
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
+
                           <form action="addreport.php" method="post">
-                            <textarea name="text" class="form-control" rows="5" placeholder="ใส่ข้อมูล"></textarea>
+                            <textarea id="text<?php echo $i; ?>" name="text" class="form-control" rows="5"
+                              placeholder="ใส่ข้อมูล" oninput="validateForm(<?php echo $i; ?>)"></textarea>
                             <br />
                             <div class="container">
                               <div class="row">
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>" />
                                 <input type="hidden" name="upstatus" value="รออนุมัติ" />
                                 <input type="hidden" name="index" value="<?php echo $i; ?>" />
-                                <select name="select" class="form-select form-select-sm"
-                                  aria-label=".form-select-sm example">
+                                <select id="select<?php echo $i; ?>" name="select" class="form-select form-select-sm"
+                                  aria-label=".form-select-sm example" onchange="validateForm(<?php echo $i; ?>)">
                                   <option selected>เลือกสถานะข้อมูล</option>
                                   <option value="ครบ">ครบ</option>
                                   <option value="ส่งซ่อมหรือจำหน่าย">ส่งซ่อมหรือจำหน่าย</option>
                                 </select>
                                 <div class="col">
                                   <div class="col" align="right">
-                                    <button type="submit" style="width:100px; height:90; font-size:15px;"
-                                      class="btn btn-success"
-                                      onclick="return confirm('ยืนยันการส่งข้อมูล')">ส่งรายงาน</button>
+                                    <button id="submitBtn<?php echo $i; ?>" type="submit"
+                                      style="width:100px; height:90; font-size:15px;" class="btn btn-success"
+                                      onclick="return confirm('ยืนยันการส่งข้อมูล')" disabled>ส่งรายงาน</button>
                                   </div>
                                 </div>
                               </div>
@@ -126,7 +130,12 @@ if (!$result) {
                   </div>
               </td>
               <td>
-                <?php echo $row['file_status']; ?>
+                <?php $file_status = $row['file_status'];
+                if ($file_status === 'รอตรวจรับ') {
+                  echo 'รอตรวจนับ';
+                }
+                ?>
+
               </td>
             </tr>
           <?php } ?>

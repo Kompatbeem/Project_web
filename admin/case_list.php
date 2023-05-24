@@ -59,9 +59,9 @@ if (!$result) {
         </td>
         <td>
           <div align="center" method="post" action="location_DI_list.php">
-          <a href="location_DI.php?id=<?php echo $row['DI_ID']; ?>">
-  <button type="button" style= "width:50px; height:50; font-size:10px;" class="btn-warning">แก้ไข</button>
-</a>
+            <a href="location_DI.php?id=<?php echo $row['DI_ID']; ?>">
+              <button type="button" class="btn btn-warning">แก้ไข</button>
+            </a>
           </div>
         </td>
       <?php } ?>
