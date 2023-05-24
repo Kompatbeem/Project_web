@@ -7,8 +7,10 @@ $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 // Check if file is a valid XLSX file
 if ($fileType != "xlsx") {
+
   echo "กรุณาแนบไฟล์ประเภทxlsx";
   $uploadOk = 0;
+
 }
 
 // Move the uploaded file to the target directory
@@ -17,10 +19,15 @@ if ($uploadOk == 1) {
         $uploadedFileName = $_FILES["fileToUpload"]["name"];
         $sql = "INSERT INTO file_data (n_file)
         VALUES ('$uploadedFileName')";
-            $result = mysqli_query($con, $sql) or die("Error in query: $sql " . mysqli_error());
-            header('Location: admin_addfile.php');
+        $result = mysqli_query($con, $sql) or die("Error in query: $sql " . mysqli_error());
+
+        echo '<script>';
+        echo "window.location='admin_addfile.php?do=success';";
+        echo '</script>';
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+
+
 ?>

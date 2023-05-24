@@ -6,7 +6,7 @@
 <?php
 include("condb.php");
 
-$result = $con->query("SELECT tbl_login.u_name, tbl_login.user_level, file_data.n_file, user_file.file_status
+$result = $con->query("SELECT tbl_login.u_name ,tbl_login.u_lastname, tbl_login.user_level, file_data.n_file, user_file.file_status
       FROM tbl_login
       JOIN user_file ON tbl_login.user_id = user_file.user_id
       JOIN file_data ON file_data.id_file = user_file.id_file
@@ -65,10 +65,18 @@ $result = $con->query("SELECT tbl_login.u_name, tbl_login.user_level, file_data.
                         ?>
                         <tr>
                             <td>
-                                <?php echo $row['u_name']; ?>
+                                <?php echo $row['u_name'] . " " . $row['u_lastname']; ?>
                             </td>
                             <td>
-                                <?php echo $row['user_level']; ?>
+                                <?php $user_level = $row['user_level'];
+                                if ($user_level === 'by') {
+                                    echo 'ตรวจนับครุภัณฑ์ประจำปี';
+                                } elseif ($user_level === 'bd') {
+                                    echo 'ตรวจรับครุภัณฑ์';
+                                } elseif ($user_level === 'bm') {
+                                    echo 'ตรวจรับวัสดุ';
+                                }
+                                ?>
                             </td>
                             <td>
                                 <?php echo $row['n_file']; ?>

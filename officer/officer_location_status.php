@@ -36,7 +36,8 @@
       <?php
       include("condb.php"); // เชื่อมต่อฐานข้อมูล
       
-      $result = $con->query("SELECT * FROM di_data");
+      $result = $con->query("SELECT * FROM di_data
+      WHERE DI_STATUS = 'รออนุมัติ' OR DI_STATUS = 'อนุมัติ'");
       // $query_case = "SELECT * FROM di_data"
       //  INNER JOIN tbl_login as u ON c.user_id = u.user_id
       
@@ -51,8 +52,8 @@
       <table id="example1" class="table table-bordered table-striped dataTable">
         <thead>
           <tr role="row" class="info">
-          <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสครุภัณฑ์</th>
-            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อครุภัณฑ์</th> 
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">รหัสครุภัณฑ์</th>
+            <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อครุภัณฑ์</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ปัจจุบัน</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ใหม่</th>
             <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วัน-เวลา</th>
@@ -67,13 +68,13 @@
           <?php foreach ($result as $row) {
             $i += 1 ?>
             <tr>
-            <td>
+              <td>
                 <?php echo $row['DI_CODE']; ?>
               </td>
               <td>
                 <?php echo $row['DI_NAME']; ?>
               </td>
-            
+
               <td>
                 <?php echo $row['DI_LOCATION']; ?>
               </td>
@@ -84,7 +85,7 @@
                 <?php echo $row['DI_DATE']; ?>
               </td>
               <td>
-           <!-- <div class="form-group">
+                <!-- <div class="form-group">
                                 <label></label>
                                 <select class="form-control" name="DI_STATUS">
                                     <option>รออนุมัติ</option>
@@ -93,19 +94,21 @@
                                 </select>
                                 <button type="submit" method="post" class="btn btn-success"
                             onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>  
-                            </div> -->                             
-                <?php echo $row['DI_STATUS']; ?>                     
+                            </div> -->
+                <?php echo $row['DI_STATUS']; ?>
               </td>
               <td>
-              <a style="width:80px; height:50; font-size:10px;" class="btn btn-success btn-sm" href="location_yes.php?id=<?= $row['DI_ID'];?>" 
-            onclick="return confirm('ยืนยันการลบข้อมูล !!');">อนุมัติ</a>
-            <a style="width:80px; height:50; font-size:5px;" class="btn btn-danger btn-sm" href="location_no.php?id=<?= $row['DI_ID'];?>" 
-            onclick="return confirm('ยืนยันการลบข้อมูล !!');">ไม่อนุมัติ</a>
-          </td>
-          <td>
-              <a style="width:50px; height:50; font-size:10px;" class="btn btn-danger  btn-sm" href="location_del.php?id=<?= $row['DI_ID'];?>" 
-            onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a>
-          </td>
+                <a style="width:80px; height:50; font-size:10px;" class="btn btn-success btn-sm"
+                  href="location_yes.php?id=<?= $row['DI_ID']; ?>"
+                  onclick="return confirm('ยืนยันการลบข้อมูล !!');">อนุมัติ</a>
+                <a style="width:80px; height:50; font-size:5px;" class="btn btn-danger btn-sm"
+                  href="location_no.php?id=<?= $row['DI_ID']; ?>"
+                  onclick="return confirm('ยืนยันการลบข้อมูล !!');">ไม่อนุมัติ</a>
+              </td>
+              <td>
+                <a style="width:50px; height:50; font-size:10px;" class="btn btn-danger  btn-sm"
+                  href="location_del.php?id=<?= $row['DI_ID']; ?>" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a>
+              </td>
 
             <?php } ?>
           </tr>

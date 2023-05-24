@@ -11,7 +11,7 @@ if (!empty($_POST["user_id"]) && !empty($_POST["id_file"])) {
 
     $user_id = mysqli_real_escape_string($con, $_POST["user_id"]);
     $id_file = mysqli_real_escape_string($con, $_POST["id_file"]);
-   
+
 
 
     $sql = "INSERT INTO tbl_login (user_id, id_file)

@@ -46,48 +46,77 @@ $row = mysqli_fetch_array($result);
 
             <br>
             <br>
+            <br>
+            <br>
 
             <div class="col-12 container">
                 <form action="uploadfile.php" method="post" enctype="multipart/form-data">
                     <div class="container">
                         <div class="form-group col-sm-6">
                             <h4>อัพโหลดไฟล์ &#128194;</h4>
-                            <br>
+
                         </div>
-                        <!-- <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="user_id">เลขผู้ใช้</label>
-                                <input type="text" class="form-control" name="user_id">
-                            </div>
-                        </div> -->
+
                         <div class="col-sm-6">
                             <div class="form-group">
-                            Select file to upload:
-                                    <input type="file" name="fileToUpload" id="fileToUpload">
+                                เลือกไฟล์ที่ต้องการอัพโหลด:
+                                <input type="file" name="fileToUpload" id="fileToUpload">
 
                             </div>
                         </div>
-                        <!-- <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="id_file">Group</label>
-                                <input type="text" class="form-control" name="id_file">
-                            </div>
-                        </div> -->
+
 
                         <div>
                             <button type="submit" method="post" class="btn btn-success"
-                                onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>
+                                onclick="if ($('#fileToUpload').val() === '') { alert('กรุณาเลือกไฟล์ก่อนเพิ่มไฟล์'); return false; } else { return confirm('ยืนยันการอัพโหลดไฟล์ !!'); }">บันทึก</button>
                         </div>
                     </div>
                 </form>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="col-12 container">
+                <form action="admin_deletefile.php" method="post">
+                    <div class="container">
+                        <div class="form-group col-sm-6">
+                            <h4>ลบไฟล์ &#128465;</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                เลือกไฟล์ที่ต้องการลบ:
+                                <select name="fileToDelete" id="fileToDelete">
+                                    <option value="">เลือกไฟล์</option>
+                                    <?php
+                                    // เชื่อมต่อฐานข้อมูล
+                                    include("condb.php");
+
+                                    // ดึงข้อมูล id และ n_file จากตาราง file_data
+                                    $result = $con->query("SELECT id_file, n_file FROM file_data");
+
+                                    // วนลูปแสดงตัวเลือกไฟล์
+                                    foreach ($result as $row) {
+                                        echo '<option value="' . $row['id_file'] . '">' . $row['n_file'] . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-danger"
+                                onclick="if ($('#fileToDelete').val() === '') { alert('กรุณาเลือกไฟล์ก่อนทำการลบ'); return false; } else { return confirm('ยืนยันการลบไฟล์ !!'); }">ลบ</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
             <!-- Main content -->
 
         </div><!--content-wrapper  -->
     </div><!--rapper  -->
-
-
-
 
     <?php include("footer.php"); ?>
 

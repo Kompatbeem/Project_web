@@ -19,8 +19,19 @@ session_start();
       <div class="info">
         <a href="index.php" class="d-block">
           <?php echo $_SESSION['u_name'] . " ", $_SESSION['u_lastname']; ?> <br>
-          สถานะ <label class="h4 ml-1">
-            <?php echo $_SESSION['user_level']; ?>
+          สถานะ
+          <label>
+            <?php
+            $user_level = $_SESSION['user_level'];
+            if ($user_level === 'by') {
+              echo 'ตรวจนับครุภัณฑ์ประจำปี';
+            } elseif ($user_level === 'bd') {
+              echo 'ตรวจรับครุภัณฑ์';
+            } elseif ($user_level === 'bm') {
+              echo 'ตรวจรับวัสดุ';
+            }
+            ?>
+
           </label>
         </a>
       </div>

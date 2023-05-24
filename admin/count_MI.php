@@ -11,6 +11,7 @@ $row = mysqli_fetch_array($result);
 // echo $sql;
 // exit();
 ?>
+
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <!-- Navbar -->
@@ -46,63 +47,54 @@ $row = mysqli_fetch_array($result);
 
                             <h4>แต่งตั้งคณะกรรมการตรวจนับ</h4>
                             <br>
-                        <br>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="u_lastname">ชื่อผู้ใช้</label>
-                                <input type="text" class="form-control" name="username">
+                            <br>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="u_lastname">ชื่อผู้ใช้</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="password">รหัสผ่าน</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="u_name">ชื่อ</label>
+                                    <input type="text" class="form-control" name="u_name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="u_lastname">นามสกุล</label>
+                                    <input type="text" class="form-control" name="u_lastname">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ตำแหน่งที่มอบหมาย</label>
+                                    <select class="form-control" name="user_level">
+                                        <option value="bm">คณะกรรมการตรวจรับวัสดุ</option>
+                                        <option value="bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
+                                        <option value="by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>แต่งตั้ง ณ วันที่</label>
+                                    <input type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>"
+                                        name="u_date">
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" method="post" class="btn btn-success"
+                                    onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="password">รหัสผ่าน</label>
-                                <input type="password" class="form-control" name="password">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="u_name">ชื่อ</label>
-                                <input type="text" class="form-control" name="u_name">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="u_lastname">นามสกุล</label>
-                                <input type="text" class="form-control" name="u_lastname">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>ตำแหน่งที่มอบหมาย</label>
-                                <select class="form-control" name="user_level">
-                                    <option value="bm">คณะกรรมการตรวจรับวัสดุ</option>
-                                    <option value="bd">คณะกรรมการตรวจรับครุภัณฑ์</option>
-                                    <option value="by">คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>ตำแหน่งที่มอบหมาย</label>
-                                <select class="form-control" name="user_level">
-                                    <option>คณะกรรมการตรวจรับวัสดุ</option>
-                                    <option>คณะกรรมการตรวจรับครุภัณฑ์</option>
-                                    <option>คณะกรรมการตรวจนับครุภัณฑ์ประจำปี</option>
-                                </select>
-                            </div>
-                        </div> -->
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>แต่งตั้ง ณ วันที่</label>
-                                <input type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>"
-                                    name="u_date">
-                            </div>
-                        </div>
-                        <div>
-                            <button type="submit" method="post" class="btn btn-success"
-                                onclick="return confirm('ยืนยันการไขข้อมูล !!');">บันทึก</button>
-                        </div>
-                    </div>
                 </form>
             </div>
             <!-- Main content -->
@@ -113,4 +105,5 @@ $row = mysqli_fetch_array($result);
     <!-- ./wrapper -->
     <?php include("script.php"); ?>
 </body>
+
 </html>
