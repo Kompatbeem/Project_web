@@ -7,7 +7,7 @@ $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 // Check if file is a valid XLSX file
 if ($fileType != "xlsx") {
-  echo "Only XLSX files are allowed.";
+  echo "กรุณาแนบไฟล์ประเภทxlsx";
   $uploadOk = 0;
 }
 

@@ -63,6 +63,7 @@
               <form action="location_add.php?id=<?php echo $row['DI_ID']; ?>" method="post" accept-charset="utf-8">
                     <div class="container">
                         <div class="form-group col-sm-6">
+                          <br>
                             <h4>เปลี่ยนสถานที่ครุภัณฑ์</h4>
                             <br>
                         </div>
